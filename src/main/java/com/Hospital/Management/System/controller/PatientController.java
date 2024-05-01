@@ -1,10 +1,7 @@
-package com.Hospital.Management.System.controllre;
-
+package com.Hospital.Management.System.controller;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +12,7 @@ import com.Hospital.Management.System.repository.PatientRepository;
 
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/patient")
 public class PatientController {
 
 	
@@ -30,16 +27,21 @@ public class PatientController {
 	 {
 		 return patientRepository.save(patient);
 	 }
+	
+	
 	@GetMapping("/get")
 	 public List<Patient> getPatient()
 	 {
 		 return patientRepository.findAll();
 	 }
 	
-	@GetMapping("/get/{userid}")
+	/**
+	 @GetMapping("/get/{userid}")
 	public Optional<Patient> getPatientById(@PathVariable Long userid)
 	{
 		return patientRepository.findById(userid);
 		
 	}
+	 */
+	
 }
